@@ -5,6 +5,7 @@ on:
       - 'docs/**'
     branches:
       - master
+      - test-ace-block-driver
 
 jobs:
   build:
