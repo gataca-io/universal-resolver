@@ -36,8 +36,8 @@
 							<value>true</value>
 						</systemProperty>
 						<systemProperty>
-							<name>log4j.configuration</name>
-							<value>file:${basedir}/src/test/resources/log4j.properties</value>
+							<name>log4j2.configurationFile</name>
+							<value>file:${basedir}/src/test/resources/log4j2-test.properties</value>
 						</systemProperty>
 					</systemProperties>
 					<webApp>
@@ -49,43 +49,25 @@
 						<containerIncludeJarPattern>^$</containerIncludeJarPattern>
 					</webApp>
 				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>org.slf4j</groupId>
-						<artifactId>slf4j-api</artifactId>
-						<version>${slf4j.version}</version>
-						<scope>compile</scope>
-					</dependency>
-					<dependency>
-						<groupId>org.slf4j</groupId>
-						<artifactId>jcl-over-slf4j</artifactId>
-						<version>${slf4j.version}</version>
-						<scope>compile</scope>
-					</dependency>
-					<dependency>
-						<groupId>org.slf4j</groupId>
-						<artifactId>slf4j-log4j12</artifactId>
-						<version>${slf4j.version}</version>
-						<scope>compile</scope>
-					</dependency>
-				</dependencies>
 			</plugin>
 		</plugins>
 	</build>
 
 	<dependencies>
 		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
 			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>decentralized-identity</groupId>
